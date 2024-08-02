@@ -1,10 +1,10 @@
-.PHONY: clean build serve
+.PHONY: clean build connect
 
 clean:
-	rm -rf dist || true
-
-build:
-	jupyter lite build --contents content --output-dir dist	
+	echo Todo:  Clean
 	
-serve: build
-	cd dist && jupyter lite serve
+build:
+	docker build -t codesolid:cpcc .
+	
+connect: build
+	docker run --rm -it codesolid:cpcc /bin/bash
