@@ -1,4 +1,7 @@
-FROM python:3.12.4-slim-bookworm
-
-RUN python -m pip install --upgrade pip
-RUN pip install jupyterlab sympy numpy matplotlib jdesmos
+FROM python:3.12.4-bookworm
+WORKDIR /
+RUN mkdir /docker_build
+COPY docker_build/install.sh /docker_build
+RUN chmod 777 /docker_build/install.sh
+RUN /docker_build/install.sh
+ENTRYPOINT ["jupyter-lite", "serve", "--port=8080"]
