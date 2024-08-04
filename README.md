@@ -21,6 +21,10 @@ For a tutorial showing how I added this site to CodeSolid, check out [Jupyter Li
 
 The code for this project is available here:
 
+# Troubleshooting
+
+If the run task gives an error, "=> CANCELED [internal] load build definition from Dockerfile," try running ```task build``` first instead explicitly.
+
 https://github.com/CodeSolid/cpcc
 
-Please let me know if you see an issues. Such Jupyter content (in the content directory) that is not part of the [JupyterLite Demo project](https://github.com/jupyterlite/demo) is Copyright (c) 2022, John Lockwood and CodeSolid.com. Feel free to use any modifications I've made otherwise if you find them useful under a BSD license.  Thanks for reading!  
+  
