@@ -1,7 +1,7 @@
-jupyterlab 
-sympy 
-numpy 
-matplotlib 
-jdesmos 
-jupyterlite-core 
-jupyterlite-pyodide-kernel 
+jupyterlab
+sympy
+numpy
+matplotlib
+jdesmos
+jupyterlite-core
+jupyterlite-pyodide-kernel
