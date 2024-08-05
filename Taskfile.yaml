@@ -39,4 +39,4 @@ tasks:
   taskfile-demo:
       desc: "Run default task"
       cmds:
-        - "docker run -it -p 8080:8080 --entrypoint 'task' my-app || true"
+        - "docker run -it -v $(pwd)/hello:/hello -p 8080:8080 --entrypoint 'task' my-app || true"
