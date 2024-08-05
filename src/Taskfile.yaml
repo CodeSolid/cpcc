@@ -1,0 +1,17 @@
+version: '3'
+
+
+tasks:
+  default:
+    cmds:
+      - echo Running default TRALA TRALA TRALA
+    deps: [from-home]
+
+  from-home:
+    cmds:
+      - pwd
+
+  from-working-directory:
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - pwd

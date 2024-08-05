@@ -1,0 +1,42 @@
+version: '3'
+
+tasks:
+  default:
+    desc: "Build and run the Docker container"
+    deps: [build, run]
+
+  build:
+    desc: "Build the Docker image"
+    cmds:
+      - "docker build -t my-app ."
+  
+  # This was original run command.  For now we run bash
+  run:
+    desc: "Run the Docker container"
+    cmds:
+      - "docker rm -f my-app || true"  # Remove any existing container
+      - "docker run  -v $PWD/app/content:/app/content -p 8080:8080 --name my-app my-app"
+
+  stop:
+    desc: "Stop the Docker container"
+    cmds:
+      - "docker stop my-app || true"
+
+  restart:
+    desc: "Restart the Docker container"
+    deps: [stop, run]
+
+  logs:
+    desc: "Follow logs of the Docker container"
+    cmds:
+      - "docker logs -f my-app"
+
+  bash:
+    desc: "Connect to container's prompt"
+    cmds:
+      - "docker run -it -p 8080:8080 --entrypoint '/bin/bash' my-app || true"
+
+  taskfile-demo:
+      desc: "Run default task"
+      cmds:
+        - "docker run -it -p 8080:8080 --entrypoint 'task' my-app || true"

@@ -1,22 +1,16 @@
 # CPCC Jupyter Online at CodeSolid
 
-This is a JupyterLite project allowing you to run Python and Jupyter in the browser at [jupyter.codesolid.com](https://jupyter.codesolid.com/lab/index.html?path=index.ipynb)
+This is a JupyterLite project allowing you to run Python and Jupyter in the browser.  It is loosely based on [jupyter.codesolid.com](https://jupyter.codesolid.com/lab/index.html?path=index.ipynb)
 
-## Setup
-conda env create --file ./environment.yaml
-conda activate cpcc
+## Usage -- getting started
+
+TODO: write
 
 
 ## Running Locally
 
-Use the provided Makefile.  Windows users should install [Make for Windows](https://gnuwin32.sourceforge.net/packages/make.htm).
+### Tools needed:
 
-Run:
-
-```
-make build
-make serve
-```
 
 At this point, the server should be running on http://127.0.0.1:8000/index.html.
 
@@ -27,6 +21,10 @@ For a tutorial showing how I added this site to CodeSolid, check out [Jupyter Li
 
 The code for this project is available here:
 
+# Troubleshooting
+
+If the run task gives an error, "=> CANCELED [internal] load build definition from Dockerfile," try running ```task build``` first instead explicitly.
+
 https://github.com/CodeSolid/cpcc
 
-Please let me know if you see an issues. Such Jupyter content (in the content directory) that is not part of the [JupyterLite Demo project](https://github.com/jupyterlite/demo) is Copyright (c) 2022, John Lockwood and CodeSolid.com. Feel free to use any modifications I've made otherwise if you find them useful under a BSD license.  Thanks for reading!  
+  
