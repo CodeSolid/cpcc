@@ -1,0 +1,16 @@
+# 
+# It could be further adjusted (see https://www.gitpod.io/docs/introduction/learn-gitpod/gitpod-yaml).
+
+# Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
+
+tasks:
+    - name: Install required packages & Open Jupyter Notebook
+      init: pip install -r requirements.txt
+      command: gp open quickstart-demo.ipynb
+
+vscode:
+    extensions:
+        - ms-toolsai.jupyter
+        - ms-python.python
+
+
