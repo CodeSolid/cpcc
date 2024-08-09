@@ -2,41 +2,27 @@ version: '3'
 
 tasks:
   default:
-    desc: "Build and run the Docker container"
-    deps: [build, run]
+    desc: "Run the default"
+    deps: [lite]
 
-  build:
-    desc: "Build the Docker image"
+  lite:
+    desc: "Delete hidden files in content dir and run the jupyter-lite service"
     cmds:
-      - "docker build -t my-app ."
-  
-  # This was original run command.  For now we run bash
-  run:
-    desc: "Run the Docker container"
-    cmds:
-      - "docker rm -f my-app || true"  # Remove any existing container
-      - "docker run -v $PWD/content:/content -p 8080:8080 --name my-app my-app"
+      - "rm -rf ./content/.*"
+      - "docker compose up jupyter-lite"
 
-  stop:
-    desc: "Stop the Docker container"
+  lab:
+    desc: "Run Jupyter Lab"
     cmds:
-      - "docker stop my-app || true"
+      - "docker compose up jupyter-lab"
 
-  restart:
-    desc: "Restart the Docker container"
-    deps: [stop, run]
-
-  logs:
-    desc: "Follow logs of the Docker container"
+  down:
+    desc: "Brings down any docker compose services"
     cmds:
-      - "docker logs -f my-app"
+      - "docker compose down"
 
   bash:
     desc: "Connect to container's prompt"
     cmds:
-      - "docker run -it -v $(pwd)/content:/content -p 8080:8080 --entrypoint '/bin/bash' my-app || true"
+      - "docker run --rm -it -v $(pwd)/content:/content -p 8080:8080 --entrypoint '/bin/bash' my-app || true"
 
-  taskfile-demo:
-      desc: "Run default task"
-      cmds:
-        - "docker run -it -v $(pwd)/content:/content -p 8080:8080 --entrypoint 'task' my-app || true"

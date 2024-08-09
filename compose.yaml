@@ -1,0 +1,22 @@
+services:
+  jupyter-lite:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./content:/content
+
+  jupyter-lab:
+    build: .
+    ports:
+    - "8888:8888"
+    volumes:
+      - ./content:/content
+    entrypoint:
+      - jupyter
+      - lab
+      - --allow-root
+      - --ip=0.0.0.0
+      - --port=8888
+      - /content
+      - ip=0.0.0.0
