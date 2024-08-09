@@ -1,12 +1,16 @@
 version: '3'
 
 tasks:
-  run:
-    jupyter-lite build --contents content --output-dir dist && cd dist && jupyter-lite serve --port=8080
+
   default:
     cmds:
       - echo Running default TRALA TRALA TRALA
     deps: [from-home]
+
+
+  run:
+    /run.sh
+    # jupyter-lite build --contents /content --output-dir dist && cd dist && jupyter-lite serve --port=8080
 
   from-home:
     cmds:
