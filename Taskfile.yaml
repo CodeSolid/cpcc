@@ -15,7 +15,7 @@ tasks:
     desc: "Run the Docker container"
     cmds:
       - "docker rm -f my-app || true"  # Remove any existing container
-      - "docker run  -v $PWD/app/content:/app/content -p 8080:8080 --name my-app my-app"
+      - "docker run -p 8080:8080 --name my-app my-app"
 
   stop:
     desc: "Stop the Docker container"
